@@ -1,64 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
+﻿//@author Рычков Р.В.
+using System; // Подключаем стандартную библиотеку
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections.Generic; // Подключаем коллекции (List)
+using System.IO; // Для работы с файлами
 
-namespace FilmsDB
+namespace FilmsDB // Пространство имен FilmsDB
 {
-    public class DBFilm
+    // Класс базы данных фильмов
+    public class DBFilm 
     {
-        private BindingList<Film> films = new BindingList<Film>(); // Используем BindingList
+        private List<Film> films = new List<Film>(); // Список фильмов
 
-        public void AddFilm(Film film)
+        // Метод добавления фильма
+        public void AddFilm(Film film) 
         {
-            films.Add(film);
+            films.Add(film); // Добавляем фильм в список
         }
 
-        public BindingList<Film> GetBindingList()
+        // Метод получения всех фильмов
+        public List<Film> GetFilms() 
         {
-            return films;
+            return films; // Возвращаем список фильмов
         }
 
-        public void RemoveFilm(int index)
+        // Метод удаления фильма по индексу
+        public void RemoveFilm(int index) 
         {
-            if (index >= 0 && index < films.Count)
+            if (index >= 0 && index < films.Count) // Проверяем, что индекс в пределах
             {
-                films.RemoveAt(index);
+                films.RemoveAt(index); // Удаляем фильм по индексу
             }
         }
 
-        public void ClearAll()
+        // Метод очистки всей базы
+        public void ClearAll() 
         {
-            films.Clear();
+            films.Clear(); // Очищаем список
         }
 
-        public void SaveToFile(string filePath)
+        // Метод сохранения в файл
+        public void SaveToFile(string filePath) 
         {
-            using (StreamWriter writer = new StreamWriter(filePath))
+            using (StreamWriter writer = new StreamWriter(filePath)) // Открываем поток записи
             {
-                foreach (var film in films)
+                foreach (var film in films) // Перебираем все фильмы
                 {
-                    writer.WriteLine($"{film.Title}|{film.Genre}|{film.Year}|{film.Director}|{film.Rating}");
+                    writer.WriteLine($"{film.Title}|{film.Genre}|{film.Year}|{film.Director}|{film.Rating}"); // Записываем в файл
                 }
             }
         }
 
-        public void LoadFromFile(string filePath)
+        // Метод загрузки из файла
+        public void LoadFromFile(string filePath) 
         {
-            if (File.Exists(filePath))
+            if (File.Exists(filePath)) // Проверяем наличие файла
             {
-                films.Clear();
-                foreach (var line in File.ReadLines(filePath))
+                films.Clear(); // Очищаем список перед загрузкой
+                foreach (var line in File.ReadLines(filePath)) // Читаем построчно
                 {
-                    var parts = line.Split('|');
-                    if (parts.Length == 5)
+                    var parts = line.Split('|'); // Разделяем строку
+                    if (parts.Length == 5) // Проверяем правильность формата
                     {
-                        string title = parts[0];
-                        string genre = parts[1];
-                        int year = int.Parse(parts[2]);
-                        string director = parts[3];
-                        double rating = double.Parse(parts[4]);
-                        films.Add(new Film(title, genre, year, director, rating));
+                        string title = parts[0]; // Сохраняем название
+                        string genre = parts[1]; // Сохраняем жанр
+                        int year = int.Parse(parts[2]); // Сохраняем год
+                        string director = parts[3]; // Сохраняем режиссёра
+                        double rating = double.Parse(parts[4]); // Сохраняем рейтинг
+                        films.Add(new Film(title, genre, year, director, rating)); // Добавляем фильм в список
                     }
                 }
             }

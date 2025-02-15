@@ -47,16 +47,16 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Lavender;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(57, 115);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 44);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(448, 353);
+            this.dataGridView1.Size = new System.Drawing.Size(727, 353);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(566, 115);
+            this.button1.Location = new System.Drawing.Point(802, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(163, 40);
             this.button1.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(566, 215);
+            this.button2.Location = new System.Drawing.Point(802, 144);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(163, 40);
             this.button2.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(566, 315);
+            this.button3.Location = new System.Drawing.Point(802, 244);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(163, 40);
             this.button3.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(566, 428);
+            this.button4.Location = new System.Drawing.Point(802, 357);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(163, 40);
             this.button4.TabIndex = 5;
@@ -103,7 +103,7 @@
             this.ReferenceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(992, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -119,14 +119,14 @@
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.OpenToolStripMenuItem.Text = "Открыть";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.SaveToolStripMenuItem.Text = "Сохранить";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
@@ -150,7 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(784, 555);
+            this.ClientSize = new System.Drawing.Size(992, 434);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
