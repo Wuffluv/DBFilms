@@ -60,8 +60,9 @@ namespace FilmsDB // Пространство имен FilmsDB
                 films.Clear(); // Очищаем список перед загрузкой
                 foreach (var line in File.ReadLines(filePath)) // Читаем построчно
                 {
+                    //какой тип переменной parts
                     var parts = line.Split('|'); // Разделяем строку
-                    if (parts.Length == 5) // Проверяем правильность формата
+                    if (parts.Length == 5) // Проверяем правильность формата. У нас 5 столбцов
                     {
                         string title = parts[0]; // Сохраняем название
                         string genre = parts[1]; // Сохраняем жанр

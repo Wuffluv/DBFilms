@@ -14,7 +14,7 @@ namespace FilmsDB // Пространство имен FilmsDB
         public string Genre { get; set; } //  Жанр фильма
         public int Year { get; set; } //Год выпуска
         public string Director { get; set; } //Режиссёр
-        public double Rating { get; set; } // Рейтинг
+        public double Rating { get; set; } // Рейтингя
 
         // Конструктор класса Film
         public Film(string title, string genre, int year, string director, double rating)

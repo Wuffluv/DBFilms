@@ -1,35 +1,59 @@
-﻿//@author Рычков Р.В.
+﻿//@Author Рычков Р.В.
 using System; // Подключаем системную библиотеку
 using System.Windows.Forms; // Для работы с формами и элементами интерфейса
+using System.Drawing;
 
 namespace FilmsDB // Пространство имен FilmsDB
 {
     // Класс окна добавления фильма
-    public partial class WindowAdd : Form 
+    public partial class WindowAdd : Form
     {
         private DBFilm db; // Ссылка на базу данных фильмов
 
         // Конструктор окна добавления
-        public WindowAdd(DBFilm database) 
+        public WindowAdd(DBFilm database)
         {
             InitializeComponent(); // Инициализация элементов интерфейса
             db = database; // Инициализация базы данных
+
+            // Убираем красную рамку, если текст изменился
+            textBox3.TextChanged += (s, e) => textBox3.BackColor = SystemColors.Window;//Поле года
+            textBox5.TextChanged += (s, e) => textBox5.BackColor = SystemColors.Window;//поле рейтинга
         }
 
-        // Обработчи кнопки "Добавить"
-        private void button1_Click(object sender, EventArgs e) 
+        // Обработчик кнопки "Добавить"
+        private void button1_Click(object sender, EventArgs e)
         {
-            // Проверяем заполнение всех полей
-            if (!string.IsNullOrWhiteSpace(textBox1.Text) && 
-                !string.IsNullOrWhiteSpace(textBox2.Text) &&
-                !string.IsNullOrWhiteSpace(textBox3.Text) &&
-                !string.IsNullOrWhiteSpace(textBox4.Text) &&
-                !string.IsNullOrWhiteSpace(textBox5.Text))
+            bool isValid = true; //флаг пдля проверки правильности вводимых данных
+
+            // Проверяем поле год – должно быть числом
+            if (!int.TryParse(textBox3.Text, out _))
             {
-                try 
+                textBox3.BackColor = System.Drawing.Color.LightCoral; // Красная подсветка
+                isValid = false;
+            }
+
+            // Проверяем поле "Рейтинг", указывать надо с плавающей точкой
+            if (!double.TryParse(textBox5.Text, out _))
+            {
+                textBox5.BackColor = System.Drawing.Color.LightCoral; // Красная подсветка
+                isValid = false;
+            }
+
+            // Если проврка не прошла, выходим
+            if (!isValid) return;
+
+            // Проверяем заполнение всех остальных полей
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) &&
+                !string.IsNullOrWhiteSpace(textBox2.Text) &&
+                !string.IsNullOrWhiteSpace(textBox4.Text))
+            {
+                try
+
+
                 {
                     string title = textBox1.Text; // Сохраняем название
-                    string genre = textBox2.Text; // Сохраняем жанр
+                    string genre = textBox2.Text; // Сохраняем жанря
                     int year = int.Parse(textBox3.Text); // Преобразуем год в число
                     string director = textBox4.Text; // Сохраняем режиссёра
                     double rating = double.Parse(textBox5.Text); // Преобразуем рейтинг в число
@@ -50,7 +74,7 @@ namespace FilmsDB // Пространство имен FilmsDB
         }
 
         //Обработчик кнопки "Отмена"
-        private void button2_Click(object sender, EventArgs e) 
+        private void button2_Click(object sender, EventArgs e)
         {
             this.Close(); // Закрываем окно без добавления
         }

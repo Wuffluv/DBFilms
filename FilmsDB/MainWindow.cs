@@ -4,6 +4,7 @@ using System.Collections.Generic; // Коллекции
 using System.IO; // Работа с файлами
 using System.Windows.Forms; // Элементы интерфейса
 
+
 namespace FilmsDB // Пространство имен FilmsDB
 {
     // Главная форма приложения
@@ -80,6 +81,8 @@ namespace FilmsDB // Пространство имен FilmsDB
         // Метод обновления DataGridView
         private void UpdateDataGridView() 
         {
+            //необходимо, чтобы избежать ситуации, когда старые данные остаются в таблице, а новые не отображаются
+            //корректно и поэтому мы используем это чтобы очистить инфу в DataGridView
             dataGridView1.DataSource = null; // Сбрасываем источник данных
             dataGridView1.DataSource = dbFilm.GetFilms(); // Подключаем обновлённый список
 
