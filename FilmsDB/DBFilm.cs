@@ -61,7 +61,7 @@ namespace FilmsDB // Пространство имен FilmsDB
                 foreach (var line in File.ReadLines(filePath)) // Читаем построчно
                 {
                     //какой тип переменной parts
-                    var parts = line.Split('|'); // Разделяем строку
+                    var parts = line.Split('|'); // Разделяем строку, возвращает.....todo
                     if (parts.Length == 5) // Проверяем правильность формата. У нас 5 столбцов
                     {
                         string title = parts[0]; // Сохраняем название

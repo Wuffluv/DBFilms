@@ -4,6 +4,7 @@ using System.Collections.Generic; // Коллекции
 using System.IO; // Работа с файлами
 using System.Windows.Forms; // Элементы интерфейса
 
+//использовать BindingList
 
 namespace FilmsDB // Пространство имен FilmsDB
 {

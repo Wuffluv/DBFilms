@@ -1,7 +1,7 @@
 ﻿//@Author Рычков Р.В.
 using System; // Подключаем системную библиотеку
 using System.Windows.Forms; // Для работы с формами и элементами интерфейса
-using System.Drawing;
+using System.Drawing; //Подключаем для работы с цветом при выделении ошибочного элемента в textbox
 
 namespace FilmsDB // Пространство имен FilmsDB
 {
@@ -16,6 +16,7 @@ namespace FilmsDB // Пространство имен FilmsDB
             InitializeComponent(); // Инициализация элементов интерфейса
             db = database; // Инициализация базы данных
 
+           //разобартсья с лямбдой функцией
             // Убираем красную рамку, если текст изменился
             textBox3.TextChanged += (s, e) => textBox3.BackColor = SystemColors.Window;//Поле года
             textBox5.TextChanged += (s, e) => textBox5.BackColor = SystemColors.Window;//поле рейтинга
