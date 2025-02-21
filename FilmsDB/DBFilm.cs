@@ -1,32 +1,29 @@
 ﻿//@author Рычков Р.В.
 using System; // Подключаем стандартную библиотеку
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Generic; // Подключаем коллекции (List)
 using System.IO; // Для работы с файлами
+using System.ComponentModel; // Для BindingList
 
 namespace FilmsDB // Пространство имен FilmsDB
 {
     // Класс базы данных фильмов
-    public class DBFilm 
+    public class DBFilm
     {
-        private List<Film> films = new List<Film>(); // Список фильмов
+        private BindingList<Film> films = new BindingList<Film>(); // BindingList вместо List для автообновления UI
 
         // Метод добавления фильма
-        public void AddFilm(Film film) 
+        public void AddFilm(Film film)
         {
             films.Add(film); // Добавляем фильм в список
         }
 
         // Метод получения всех фильмов
-        public List<Film> GetFilms() 
+        public BindingList<Film> GetFilms()
         {
             return films; // Возвращаем список фильмов
         }
 
         // Метод удаления фильма по индексу
-        public void RemoveFilm(int index) 
+        public void RemoveFilm(int index)
         {
             if (index >= 0 && index < films.Count) // Проверяем, что индекс в пределах
             {
@@ -35,13 +32,13 @@ namespace FilmsDB // Пространство имен FilmsDB
         }
 
         // Метод очистки всей базы
-        public void ClearAll() 
+        public void ClearAll()
         {
             films.Clear(); // Очищаем список
         }
 
         // Метод сохранения в файл
-        public void SaveToFile(string filePath) 
+        public void SaveToFile(string filePath)
         {
             using (StreamWriter writer = new StreamWriter(filePath)) // Открываем поток записи
             {
@@ -53,22 +50,21 @@ namespace FilmsDB // Пространство имен FilmsDB
         }
 
         // Метод загрузки из файла
-        public void LoadFromFile(string filePath) 
+        public void LoadFromFile(string filePath)
         {
             if (File.Exists(filePath)) // Проверяем наличие файла
             {
                 films.Clear(); // Очищаем список перед загрузкой
                 foreach (var line in File.ReadLines(filePath)) // Читаем построчно
                 {
-                    //какой тип переменной parts
-                    var parts = line.Split('|'); // Разделяем строку, возвращает массив из подстрок
-                    if (parts.Length == 5) // Проверяем правильность формата. У нас 5 столбцов
+                    var parts = line.Split('|'); // Разделяем строку
+                    if (parts.Length == 5) // Проверяем правильность формата
                     {
-                        string title = parts[0]; // Сохраняем название
-                        string genre = parts[1]; // Сохраняем жанр
-                        int year = int.Parse(parts[2]); // Сохраняем год
-                        string director = parts[3]; // Сохраняем режиссёра
-                        double rating = double.Parse(parts[4]); // Сохраняем рейтинг
+                        string title = parts[0];
+                        string genre = parts[1];
+                        int year = int.Parse(parts[2]);
+                        string director = parts[3];
+                        double rating = double.Parse(parts[4]);
                         films.Add(new Film(title, genre, year, director, rating)); // Добавляем фильм в список
                     }
                 }
