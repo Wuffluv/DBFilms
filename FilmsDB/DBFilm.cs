@@ -1,4 +1,7 @@
 ﻿//@author Рычков Р.В.
+
+//Модель 
+
 using System; // Подключаем стандартную библиотеку
 using System.IO; // Для работы с файлами
 using System.ComponentModel; // Для BindingList

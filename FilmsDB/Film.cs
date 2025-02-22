@@ -1,4 +1,7 @@
 ﻿//@author Рычков Р.В.
+
+//Модель
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
