@@ -11,6 +11,11 @@ namespace FilmsDB // Пространство имен FilmsDB
     // Класс базы данных фильмов
     public class DBFilm
     {
+
+        //Ассоциация указывает, что класс DBFilm использует или управляет объектами класса Film.
+        //в моем случае, DBFilm содержит коллекцию объектов Film, отражает отношение "один ко многим".
+
+
         private BindingList<Film> films = new BindingList<Film>(); // BindingList вместо List для автообновления UI
 
         // Метод добавления фильма

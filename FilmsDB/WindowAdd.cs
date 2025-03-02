@@ -11,12 +11,21 @@ namespace FilmsDB // Пространство имен FilmsDB
     // Класс окна добавления фильма
     public partial class WindowAdd : Form
     {
+
+         
+
         private readonly DBFilm db; // Ссылка на базу данных фильмов
 
         // Конструктор окна добавления
         public WindowAdd(DBFilm database)
         {
             InitializeComponent(); // Инициализация элементов интерфейса
+
+            //WindowAdd получает объект DBFilm через параметр конструктора (database) и сохраняет его в приватное поле db.  
+            // Это пример агрегации, так как WindowAdd имеет ссылку на DBFilm,
+            // но не создает его самостоятельно, а использует уже существующий экземпляр.
+
+
             db = database; // Инициализация базы данных
 
             // Лямбда выражение - (s, e) => textBox3.BackColor = SystemColors.Window

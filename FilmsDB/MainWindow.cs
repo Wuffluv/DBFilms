@@ -15,6 +15,16 @@ using System.Windows.Forms; // Элементы интерфейса
 namespace FilmsDB // Пространство имен FilmsDB
 {
     // Главная форма приложения
+
+    //Агрегация
+    //- это когда один объект является частью другого объекта, но при этом оба объекта могут
+    //существовать независимо друг от друга
+
+    //Экземпляр DBFilm создается внутри MainWindow и хранится в приватном поле dbFilm.
+    //Это агрегация, так как MainWindow владеет ссылкой на DBFilm,
+    //но жизненный цикл DBFilm не обязательно жестко привязан к MainWindow (например, он может быть передан другому объекту).
+
+
     public partial class MainWindow : Form
     {
         private DBFilm dbFilm = new DBFilm(); // Создаем объект базы данных
@@ -40,6 +50,11 @@ namespace FilmsDB // Пространство имен FilmsDB
         }
 
         // Обработчик кнопки "Добавить"
+
+        //Зависимость
+        //класс MainWindow создает объект WindowAdd, передавая ему ссылку на dbFilm.
+        //Это демонстрирует зависимость, так как WindowAdd не может быть создан без участия MainWindow,
+        //который инициирует его появление.
         private void button2_Click(object sender, EventArgs e)
         {
             WindowAdd windowAdd = new WindowAdd(dbFilm); // Создаем окно добавления
