@@ -65,6 +65,10 @@ namespace UnitTestDBFilm
             Assert.AreEqual(0, films.Count, "Список фильмов должен быть пуст после очистки");
         }
 
+
+        /// <summary>
+        /// Протеститровать разные варианты (на будущее)
+        /// </summary>
         [TestMethod]
         public void Test_DBFilm_SaveAndLoad()
         {

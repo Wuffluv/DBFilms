@@ -1,10 +1,12 @@
 ﻿//@author Рычков Р.В.
 
 //Модель 
+//Модель состоит из Film (структура данных) и DBFilm (логика управления данными).
 
 using System; // Подключаем стандартную библиотеку
 using System.IO; // Для работы с файлами
 using System.ComponentModel; // Для BindingList
+
 
 namespace FilmsDB // Пространство имен FilmsDB
 {
